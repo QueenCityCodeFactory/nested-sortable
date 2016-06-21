@@ -1,13 +1,15 @@
-# nestedSortable jQuery plugin
+# nestedSortable jQuery plugin - with enhancements for use with CakePHP 3.x
 
-**nestedSortable** is a jQuery plugin that extends jQuery Sortable UI functionalities to nested lists.  
+**nestedSortable** is a jQuery plugin that extends jQuery Sortable UI functionalities to nested lists.
 
-## Meteor Installation
-    meteor add ilikenwf:nested-sortable
+## What's been removed in this fork?
+This repo has been forked with the intentions of optimizing for a particular PHP framework CakePHP, therefore a couple things have been removed:
+- serialize
+- toHierarchy
 
 ## What's new in version 2.0
 
-The biggest change is that your nested list can now behave as a tree with expand/collapse funcionality. Simply set `isTree` to **true** in the options and you are good to go! Check the [demo](http://ilikenwf.github.io/example.html) out to see what can be done with nestedSortable and a little CSS. (Note that all **nestedSortable** does is to assign/remove classes on the fly)  
+The biggest change is that your nested list can now behave as a tree with expand/collapse funcionality. Simply set `isTree` to **true** in the options and you are good to go! Check the [demo](http://ilikenwf.github.io/example.html) out to see what can be done with nestedSortable and a little CSS. (Note that all **nestedSortable** does is to assign/remove classes on the fly)
 Also:
 - **isAllowed** function finally works as expected, see the docs below
 - Fixed: a small bug in the **protectRoot** function
@@ -23,7 +25,7 @@ Also:
 - All jQuery Sortable options, events and methods are available
 - It is possible to define elements that will not accept a new nested item/list and a maximum depth for nested items
 - The root level can be protected
-- The parentship of items can be locked, just as if it was a family tree. 
+- The parentship of items can be locked, just as if it was a family tree.
 
 ## Usage
 
@@ -88,6 +90,10 @@ Also, the default list type is `<ol>`.
 	<dd>How far right or left (in pixels) the item has to travel in order to be nested or to be sent outside its current list. Default: <b>20</b></dd>
 	<dt>excludeRoot</dt>
 	<dd>Exlude the root item from the <code>toArray</code> output</dd>
+    <dt>left</dt>
+    <dd>The name of the left node: <code>lft</code></dd>
+    <dt>right</dt>
+    <dd>The name of the right node: <code>rght</code></dd>
 </dl>
 
 ## Custom Classes (you will set them in the options as well)
@@ -96,7 +102,7 @@ Also, the default list type is `<ol>`.
 	<dt>branchClass (2.0)</dt>
 	<dd>Given to all items that have children. Default: <b>mjs-nestedSortable-branch</b></dd>
 	<dt>collapsedClass (2.0)</dt>
-	<dd>Given to branches that are collapsed. It will be switched to <b>expandedClass</b> when hovering for more then <b>expandOnHover</b> ms. Default: <b>mjs-nestedSortable-collapsed</b></dd> 
+	<dd>Given to branches that are collapsed. It will be switched to <b>expandedClass</b> when hovering for more then <b>expandOnHover</b> ms. Default: <b>mjs-nestedSortable-collapsed</b></dd>
 	<dt>disableNestingClass</dt>
 	<dd>Given to items that will not accept children. Default: <b>mjs-nestedSortable-no-nesting</b></dd>
 	<dt>errorClass</dt>
@@ -115,8 +121,7 @@ Also, the default list type is `<ol>`.
 
 <dl>
 	<dt>serialize</dt>
-	<dd>Serializes the nested list into a string like <b>setName[item1Id]=parentId&setName[item2Id]=parentId</b>, reading from each item's id formatted as 'setName_itemId' (where itemId is a number).
-	It accepts the same options as the original Sortable method (<b>key</b>, <b>attribute</b> and <b>expression</b>).</dd>
+	<dd>This method has been removed.</dd>
 	<dt>toArray</dt>
 	<dd>Builds an array where each element is in the form:
 <pre>setName[n] =>
@@ -130,22 +135,7 @@ Also, the default list type is `<ol>`.
 </pre>
 	It accepts the same options as the original Sortable method (<b>attribute</b> and <b>expression</b>) plus the custom <b>startDepthCount</b>, that sets the starting depth number (default is <b>0</b>).</dd>
 	<dt>toHierarchy</dt>
-	<dd>Builds a hierarchical object in the form:
-<pre>'0' ...
-	'id' => itemId
-'1' ...
-	'id' => itemId
-	'children' ...
-		'0' ...
-			'id' => itemId
-		'1' ...
-			'id' => itemId
-'2' ...
-	'id' => itemId
-</pre>
-	Similarly to <code>toArray</code>, it accepts <b>attribute</b> and <b>expression</b> options.
-	Optionally adding `data-` attributes will cause them to show up in the hierarchy. See demo for example.
-	</dd>
+	<dd>This method has been removed.</dd>
 </dl>
 
 ## Events
@@ -170,10 +160,10 @@ jQuery UI Sortable 1.10+ (might work with 1.9, but not tested)
 
 ## Browser Compatibility
 
-Tested with: Firefox, Chrome  
+Tested with: Firefox, Chrome
 **NOTE: This is still an alpha version, please test thoroughly in whichever version of IE you target**
 
 ## License
 
-This work is licensed under the MIT License.  
+This work is licensed under the MIT License.
 Which means you can do pretty much whatever you want with it.
