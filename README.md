@@ -3,19 +3,14 @@
 **nestedSortable** is a jQuery plugin that extends jQuery Sortable UI functionalities to nested lists.
 
 ## What's been removed in this fork?
-This repo has been forked with the intentions of optimizing for a particular PHP framework CakePHP, therefore a couple things have been removed:
+This repo has been forked with the intentions of optimizing for a particular PHP framework: CakePHP, therefore a couple things have been removed:
 - serialize
 - toHierarchy
 
-## What's new in version 2.0
+If someone wants to implement these functions, make other optimizations for CakePHP or general improvements, please submit a Pull Request.
 
-The biggest change is that your nested list can now behave as a tree with expand/collapse funcionality. Simply set `isTree` to **true** in the options and you are good to go! Check the [demo](http://ilikenwf.github.io/example.html) out to see what can be done with nestedSortable and a little CSS. (Note that all **nestedSortable** does is to assign/remove classes on the fly)
-Also:
-- **isAllowed** function finally works as expected, see the docs below
-- Fixed: a small bug in the **protectRoot** function
-- Changed: no drop zone will appear at all if you try to nest an item under another one that has the *no-nesting* class.
-- Added: **doNotClear** option to prevent the plugin from deleting empty lists
-
+## More Info
+For more information or to use the original nestedSortable please see: https://github.com/ilikenwf/nestedSortable
 
 ## Features
 
